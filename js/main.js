@@ -25,10 +25,12 @@
     window.addEventListener("scroll", onScroll, { passive: true });
   }
 
-  const page = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+  const file = (location.pathname.split("/").pop() || "index").replace(/\.html$/, "").toLowerCase();
+  const page = file === "" ? "index" : file;
   links.forEach((link) => {
-    const href = (link.getAttribute("href") || "").split("#")[0].split("?")[0].toLowerCase();
-    link.classList.toggle("is-active", href === page || (page === "" && href === "index.html"));
+    const href = (link.getAttribute("href") || "").split("#")[0].split("?")[0].replace(/^\//, "").replace(/\.html$/, "").toLowerCase();
+    const name = href === "" ? "index" : href;
+    link.classList.toggle("is-active", name === page);
   });
 
   document.querySelectorAll(".faq-item button").forEach((button) => {
@@ -226,7 +228,7 @@
     if (hoursAddress) hoursAddress.textContent = club.address;
     if (hoursBook) {
       hoursBook.dataset.club = id;
-      hoursBook.href = "essai.html?club=" + id;
+      hoursBook.href = "/essai?club=" + id;
     }
     hourTabs.forEach((tab) => {
       const on = tab.dataset.hours === id;
@@ -470,7 +472,7 @@
       const marker = L.marker([spot.lat, spot.lng], { icon: icon, title: spot.name }).addTo(map);
       marker.bindPopup(
         "<strong>" + spot.name + "</strong><p>" + spot.address + "</p>" +
-        "<a href=\"horaires.html?club=" + spot.id + "\">Voir les horaires</a><br>" +
+        "<a href=\"/horaires?club=" + spot.id + "\">Voir les horaires</a><br>" +
         "<a href=\"https://www.google.com/maps/dir/?api=1&destination=" + destination + "\" target=\"_blank\" rel=\"noopener\">Ouvrir l'itinéraire</a>"
       );
       marker.on("click", () => focus(spot.id, true));
