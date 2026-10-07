@@ -290,7 +290,7 @@
         '<input type="hidden" name="_subject" value="Séance d\'essai">' +
         '<input type="hidden" name="_template" value="table">' +
         '<input type="hidden" name="_captcha" value="false">' +
-        '<input type="hidden" name="_next" value="https://sitebaby.vercel.app/?essai=envoye">' +
+        '<input type="hidden" name="_next" value="https://boxe-enfant.fr/?essai=envoye">' +
         '<div class="trial-head">' +
           '<div><p class="eyebrow">Séance d\'essai</p><h2 id="trial-title">Réserver une séance d\'essai</h2></div>' +
           '<button type="button" class="trial-close" aria-label="Fermer">×</button>' +
