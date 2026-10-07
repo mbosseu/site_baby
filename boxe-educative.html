@@ -1,0 +1,351 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Boxe éducative | Boxing Center Toulouse</title>
+  <meta name="description" content="La boxe éducative apprend les gestes et les valeurs de la boxe, sans recherche de puissance.">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <svg class="sr-only" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.2"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 20v-1.5A3.5 3.5 0 0 0 12.5 15h-5A3.5 3.5 0 0 0 4 18.5V20"/><circle cx="10" cy="8" r="3"/><path d="M20 20v-1.5A3.5 3.5 0 0 0 17 15.2"/><path d="M16 5.1a3 3 0 0 1 0 5.8"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v6c0 4.2 2.8 7.2 7 9 4.2-1.8 7-4.8 7-9V6l-7-3z"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 19h16M7 16v-4M12 16V8M17 16v-6"/></symbol>
+    <symbol id="i-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M8.5 13.5s1.4 2 3.5 2 3.5-2 3.5-2"/><path d="M9 10h.01M15 10h.01"/></symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 0 1-8 0V4z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4M12 13v3M9 20h6M10 16h4"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 4.6-7 9-7 9z"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><path d="M3 10 12 6l9 4-9 4-9-4z"/><path d="M7 12v4c2 1.5 8 1.5 10 0v-4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5 9.2 17 19 7"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M7 7l10 10M17 7 7 17"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v5l3 2"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M7 3h4l1 4-2.5 1.5a12 12 0 0 0 6 6L17 12l4 1v4a2 2 0 0 1-2 2A16 16 0 0 1 5 5a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-run" viewBox="0 0 24 24"><circle cx="15" cy="5" r="2"/><path d="M8 21l3-6 3 2 3-5M7 13l4-2 3 2 4-1"/></symbol>
+    <symbol id="i-brain" viewBox="0 0 24 24"><path d="M9 7a3 3 0 0 1 5-1 3 3 0 0 1 4 3 3 3 0 0 1 0 6 3 3 0 0 1-3 4H10a3 3 0 0 1-3-4 3 3 0 0 1 0-5 3 3 0 0 1 2-3z"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3 5 14h7l-1 7 8-11h-7l1-7z"/></symbol>
+    <symbol id="i-foot" viewBox="0 0 24 24"><path d="M9 20c-2 0-3-2-3-4 0-3 2-4 3-7 1-3 4-4 6-2 2 2 1 4 0 6-1 2 1 3 1 5 0 2-2 2-7 2z"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.6 5.6L21 9.2l-4.5 4.2L17.6 20 12 17l-5.6 3 1.1-6.6L3 9.2l6.4-.6L12 3z"/></symbol>
+  </svg>
+  <a class="sr-only" href="#contenu">Aller au contenu</a>
+  <header class="header">
+    <div class="wrap">
+      <a class="logo" href="index.html" aria-label="Boxing Center, accueil">
+        <img src="assets/logo.png" alt="Boxing Center">
+      </a>
+      <nav class="nav" id="nav" aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="boxe-educative.html">Boxe Éducative</a>
+        <a href="clubs.html">Clubs</a>
+        <a href="horaires.html">Horaires</a>
+        <a href="essai.html">Essai</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a class="btn" href="essai.html"><svg class="icon"><use href="#i-cal"/></svg>Réserver une séance d'essai <svg class="icon"><use href="#i-arrow"/></svg></a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Ouvrir le menu"><span></span></button>
+    </div>
+  </header>
+  <main id="contenu">
+    <p class="crumb wrap"><a href="index.html">Accueil</a><span>/</span>Boxe éducative</p>
+    <section id="boxe-educative">
+      <div class="wrap split">
+        <div class="photo-frame">
+          <img src="assets/img/violence.jpg" alt="Enfant qui travaille un geste sur pattes avec son coach">
+          <p class="brush photo-script">Apprendre aujourd'hui, être plus fort demain.</p>
+        </div>
+        <div>
+          <p class="eyebrow">Qu'est-ce que la boxe éducative ?</p>
+          <h1 class="display">La boxe, <span class="accent">sans la violence.</span></h1>
+          <p class="lead" style="margin-top:14px">La Boxe Éducative reprend les techniques et les valeurs de la boxe, mais dans un cadre pédagogique où l'objectif est d'apprendre, de maîtriser ses gestes et de progresser sans recherche de puissance. C'est une pratique sécurisée, adaptée aux enfants, qui permet de développer la <strong>confiance, la discipline et le respect</strong>.</p>
+          <div class="compare">
+            <article>
+              <header class="good">Boxe Éducative</header>
+              <ul>
+                <li>Apprentissage technique</li>
+                <li>Pas de recherche de puissance</li>
+                <li>Exercices contrôlés et sécurisés</li>
+                <li>Développement personnel</li>
+                <li>Respect du partenaire</li>
+                <li>Adaptée aux enfants</li>
+              </ul>
+            </article>
+            <article>
+              <header class="bad">Boxe amateur</header>
+              <ul>
+                <li>Recherche de puissance</li>
+                <li>Combats avec KO possibles</li>
+                <li>Intensité et impact élevés</li>
+                <li>Orientation compétition</li>
+                <li>Plus de risques de blessures</li>
+                <li>Réservée aux adultes ou confirmés</li>
+              </ul>
+            </article>
+          </div>
+          <div class="goals">
+            <article><strong>Maîtrise des gestes</strong><span>Apprendre les bons mouvements, pas frapper plus fort.</span></article>
+            <article><strong>Respect et fair-play</strong><span>Évoluer avec les autres dans un esprit positif.</span></article>
+            <article><strong>Contrôle et sécurité</strong><span>Des exercices adaptés et encadrés par des coachs expérimentés.</span></article>
+            <article><strong>Progression continue</strong><span>Gagner en confiance et en maîtrise, à son rythme.</span></article>
+          </div>
+          <div class="sticker-slot">
+            <div class="quote-bar">
+              
+              <p>Le but n'est pas de frapper fort.<br>Le but est d'apprendre à boxer correctement.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="pour-tous">
+      <div class="wrap">
+        <div class="who-top">
+          <div>
+            <p class="eyebrow">À qui s'adresse la boxe éducative ?</p>
+            <h2 class="display">Une pratique faite <span class="accent">pour tous les enfants.</span></h2>
+            <p class="lead" style="margin-top:12px">Pas besoin d'avoir déjà pratiqué. La Boxe Éducative s'adapte au niveau, au caractère et au rythme de chaque enfant. Chaque enfant trouve sa place, progresse à son rythme et bénéficie d'un accompagnement bienveillant par des coachs expérimentés.</p>
+          </div>
+          <div class="who-visual">
+            <img src="assets/img/tous-girl.jpg" alt="Jeune boxeuse concentrée, gants levés">
+            <p class="brush">Des enfants différents, un même objectif : progresser.</p>
+          </div>
+        </div>
+        <div class="profiles">
+          <article class="profile"><img src="assets/img/tous-1.jpg" alt="Garçon débutant en tenue Boxing Center"><div class="body"><h3>Il débute</h3><p>Aucun prérequis n'est nécessaire. Votre enfant peut commencer même s'il n'a jamais fait de boxe.</p></div><a class="go" href="essai.html">Apprendre les bases </a></article>
+          <article class="profile"><img src="assets/img/tous-2.jpg" alt="Jeune fille en garde de boxe"><div class="body"><h3>Il manque de confiance</h3><p>La boxe éducative l'aide à prendre confiance en lui, à oser et à se dépasser progressivement.</p></div><a class="go" href="essai.html">Gagner en confiance </a></article>
+          <article class="profile"><img src="assets/img/tous-3.jpg" alt="Enfant souriant qui frappe dans les pattes"><div class="body"><h3>Il a beaucoup d'énergie</h3><p>Une activité idéale pour se dépenser, se canaliser et apprendre à mieux gérer ses émotions.</p></div><a class="go" href="essai.html">Se canaliser </a></article>
+          <article class="profile"><img src="assets/img/tous-4.jpg" alt="Garçon concentré sur un geste technique"><div class="body"><h3>Il aime apprendre</h3><p>Il développe sa technique, sa discipline et sa capacité à progresser dans la durée.</p></div><a class="go" href="essai.html">Progresser techniquement </a></article>
+          <article class="profile"><img src="assets/img/tous-5.jpg" alt="Jeune fille déjà à l'aise avec les gants"><div class="body"><h3>Il pratique déjà un sport</h3><p>La boxe éducative complète parfaitement d'autres sports en améliorant la coordination, la condition physique et la concentration.</p></div><a class="go" href="essai.html">Développer d'autres qualités </a></article>
+        </div>
+        <ul class="soft-bar">
+          <li><div><strong>Filles et garçons</strong><span>Tous les enfants sont les bienvenus.</span></div></li>
+          <li><div><strong>De 3 à 16 ans</strong><span>Baby Boxe, éducative 7–11 ans, ados 12–16 ans.</span></div></li>
+          <li><div><strong>Un encadrement adapté</strong><span>Des coachs expérimentés, à l'écoute et bienveillants.</span></div></li>
+          <li><div><strong>Un cadre positif</strong><span>Respect, entraide et plaisir au cœur de chaque séance.</span></div></li>
+          <li><a class="btn" href="essai.html"><svg class="icon"><use href="#i-cal"/></svg>Réserver une séance d'essai <svg class="icon"><use href="#i-arrow"/></svg></a></li>
+        </ul>
+      </div>
+    </section>
+    <section class="course" id="cours">
+      <div class="wrap">
+        <div class="course-top">
+          <div>
+            <p class="eyebrow">Comment se déroule un cours ?</p>
+            <h2 class="display">Un cours complet, <span class="accent">ludique et structuré.</span></h2>
+            <p class="lead">Chaque séance de Boxe Éducative est pensée pour allier apprentissage, plaisir et progression. Les enfants évoluent dans un cadre sécurisé, avec des exercices adaptés à leur âge et encadrés par des coachs expérimentés.</p>
+            <ul class="course-points">
+              <li><div>1h de cours<small>dynamique et adapté</small></div></li>
+              <li><div>Petits groupes<small>pour un meilleur suivi</small></div></li>
+              <li><div>Un cadre sécurisé<small>et bienveillant</small></div></li>
+              <li><div>Une progression<small>à chaque séance</small></div></li>
+            </ul>
+          </div>
+          <img class="course-hero-img is-jeune" src="assets/img/ring-jeune.jpg" alt="Enfant casqué dans le ring, coach au bord du tapis">
+        </div>
+        <div class="steps">
+          <article class="step"><img src="assets/img/course-1.jpg" alt="Enfants qui courent pendant l'échauffement"><div class="body"><h3><span class="step-n">1</span>Échauffement <span class="time">10 min</span></h3><p>On commence par un échauffement complet et ludique : course, mobilité, coordination, jeux de pieds et exercices de motricité… pour préparer le corps et se mettre en confiance.</p></div></article>
+          <article class="step"><img src="assets/img/course-2.jpg" alt="Coach qui montre la garde à un enfant"><div class="body"><h3><span class="step-n">2</span>Apprentissage technique <span class="time">20 min</span></h3><p>Les enfants apprennent les bases de la boxe : la garde, les déplacements, les coups simples et la coordination. Tout se fait étape par étape, avec des explications claires et adaptées.</p></div></article>
+          <article class="step"><img class="is-combat" src="assets/img/ring-combat.jpg" alt="Deux enfants casqués pendant un exercice en binôme"><div class="body"><h3><span class="step-n">3</span>Exercices en binôme <span class="time">20 min</span></h3><p>Place à la pratique ! Les enfants réalisent des exercices variés en binôme (sans recherche de puissance) pour mettre en application ce qu'ils ont appris : déplacements, esquives, touches contrôlées, jeux d'opposition.</p></div></article>
+          <article class="step"><img src="assets/img/course-4.jpg" alt="Groupe d'enfants assis en cercle avec le coach"><div class="body"><h3><span class="step-n">4</span>Retour au calme <span class="time">10 min</span></h3><p>On termine par un retour au calme : étirements, respiration et un petit échange avec le coach sur les progrès de la séance. Un moment important pour calmer le corps et renforcer la confiance.</p></div></article>
+        </div>
+        <div class="band">
+          <div class="item"><div><strong>Une séance complète, du début à la fin.</strong></div></div>
+          <div class="item">Se dépenser intelligemment</div>
+          <div class="item">Apprendre des techniques</div>
+          <div class="item">Partager et s'amuser</div>
+          <div class="item">Progresser dans un cadre motivant</div>
+          <a class="btn" href="essai.html"><svg class="icon"><use href="#i-cal"/></svg>Réserver une séance d'essai <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </section>
+    <section id="competences">
+      <div class="wrap">
+        <div class="skills-top">
+          <div>
+            <p class="eyebrow">Ce que votre enfant va apprendre</p>
+            <h2 class="display">Des compétences qui vont <span class="accent">bien au-delà de la boxe.</span></h2>
+            <p class="lead" style="margin-top:12px">La Boxe Éducative permet à votre enfant de développer des compétences techniques, physiques et personnelles, utiles dans le sport comme dans la vie de tous les jours.</p>
+          </div>
+          <div class="skill-visual">
+            <img src="assets/img/skill-boy.jpg" alt="Garçon qui frappe un sac de boxe">
+            <p class="brush">Plus qu'un sport, des valeurs pour la vie.</p>
+          </div>
+        </div>
+        <div class="cards-5">
+          <article class="media-card"><img src="assets/img/skill-1.jpg" alt="Enfant en position de garde"><div class="body"><h3>La garde et les déplacements</h3><p>Apprendre à bien se positionner, se déplacer avec équilibre et maîtriser les appuis.</p></div></article>
+          <article class="media-card"><img src="assets/img/skill-2.jpg" alt="Enfant concentré sur sa coordination"><div class="body"><h3>La coordination</h3><p>Améliorer la motricité, la précision des gestes et la synchronisation corps-esprit.</p></div></article>
+          <article class="media-card"><img src="assets/img/skill-3.jpg" alt="Deux enfants face à face pendant un exercice"><div class="body"><h3>Les réflexes et l'attention</h3><p>Apprendre à observer, anticiper et réagir rapidement dans un cadre contrôlé.</p></div></article>
+          <article class="media-card"><img src="assets/img/skill-4.jpg" alt="Coach qui échange avec un enfant"><div class="body"><h3>La maîtrise de soi</h3><p>Canaliser son énergie, gérer ses émotions et développer la concentration.</p></div></article>
+          <article class="media-card"><img src="assets/img/skill-5.jpg" alt="Groupe d'enfants assis ensemble en souriant"><div class="body"><h3>Le respect et la confiance</h3><p>Évoluer avec les autres, respecter les règles et les partenaires, et gagner en confiance en soi.</p></div></article>
+        </div>
+        <div class="band flat">
+          <div class="item"><strong>Des compétences durables pour la vie.</strong></div>
+          <div class="item">Progresser à son rythme</div>
+          <div class="item">Être accompagné par des coachs expérimentés</div>
+          <div class="item">Évoluer dans un cadre sécurisé et bienveillant</div>
+          <a class="btn" href="essai.html"><svg class="icon"><use href="#i-cal"/></svg>Réserver une séance d'essai <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </section>
+    <section id="securite">
+      <div class="wrap">
+        <div class="safety-top">
+          <div>
+            <p class="eyebrow">Sécurité, pédagogie et contrôle</p>
+            <h2 class="display">La sécurité avant tout, <span class="accent">à chaque séance.</span></h2>
+            <p class="lead" style="margin-top:12px">La Boxe Éducative est pensée pour apprendre sans recherche de puissance. Les exercices sont encadrés, progressifs et adaptés à l'âge de chaque enfant, dans un cadre sécurisé et bienveillant.</p>
+          </div>
+          <div class="safety-visual">
+            <img src="assets/img/safety-hero.jpg" alt="Coach qui ajuste le casque d'un enfant">
+          </div>
+        </div>
+        <div class="cards-4">
+          <article class="media-card"><img src="assets/img/safety-1.jpg" alt="Enfants qui travaillent des gestes contrôlés"><div class="body"><h3>Des gestes contrôlés</h3><p>Chez les plus jeunes, la recherche d'efficacité est proscrite. Les exercices restent ludiques, techniques et adaptés à l'âge.</p></div></article>
+          <article class="media-card"><img src="assets/img/safety-2.jpg" alt="Casques et gants de boxe éducative"><div class="body"><h3>Matériel d'essai</h3><p>Pour une séance d'essai, le club indique que le matériel peut être prêté.</p></div></article>
+          <article class="media-card"><img src="assets/img/safety-3.jpg" alt="Coach attentif au milieu d'un groupe d'enfants"><div class="body"><h3>Des coachs attentifs</h3><p>Des professionnels expérimentés, formés à l'encadrement des enfants, à l'écoute et bienveillants.</p></div></article>
+          <article class="media-card"><img src="assets/img/safety-4.jpg" alt="Jeune fille concentrée pendant un exercice"><div class="body"><h3>Une progression sans pression</h3><p>Chaque enfant évolue à son rythme, avec des objectifs adaptés à son âge et à son niveau.</p></div></article>
+        </div>
+        <div class="safe-note">
+          <div class="txt"><div><h3>Ici, l'objectif n'est jamais de faire mal.</h3><p>On apprend à contrôler ses gestes, à respecter son partenaire et à boxer avec maîtrise, dans un esprit de plaisir, de respect et de progression.</p></div></div>
+        </div>
+        <div class="band flat">
+          <div class="item">Un cadre sécurisé<small>pour apprendre et s'épanouir</small></div>
+          <div class="item">Des coachs qualifiés<small>et expérimentés</small></div>
+          <div class="item">Un matériel contrôlé<small>et adapté aux enfants</small></div>
+          <div class="item">Une pratique bienveillante<small>et sans recherche de puissance</small></div>
+          <a class="btn" href="essai.html"><svg class="icon"><use href="#i-cal"/></svg>Réserver une séance d'essai <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </section>
+    <section class="coachs" id="coachs">
+      <div class="wrap coachs-hero">
+        <img class="side" src="assets/img/coach-side.jpg" alt="Coach et enfant face à face avec des pattes de frappe">
+        <div>
+          <p class="eyebrow">Nos coachs</p>
+          <h2 class="display">Des coachs qui savent <span class="accent">parler aux enfants.</span></h2>
+          <p class="lead">Nos entraîneurs accompagnent chaque enfant avec exigence, patience et bienveillance, dans un cadre sécurisé et adapté à son âge.</p>
+        </div>
+        <p class="brush" style="font-size:2rem">Progression<br>Plaisir<br>Confiance</p>
+      </div>
+      <div class="wrap pillar-wrap">
+        <div class="pillars">
+          <article><h3>Pédagogie adaptée</h3><p>Des méthodes d'enseignement spécialement conçues pour les enfants, selon leur âge et leur niveau.</p></article>
+          <article><h3>Sécurité avant tout</h3><p>Un encadrement strict, des règles claires et un environnement sécurisé dans tous nos clubs.</p></article>
+          <article><h3>Bienveillance &amp; respect</h3><p>Des coachs à l'écoute qui valorisent chaque enfant et favorisent un climat positif et motivant.</p></article>
+          <article><h3>Progression individuelle</h3><p>Chaque enfant évolue à son rythme, avec des objectifs adaptés et un suivi régulier de ses progrès.</p></article>
+        </div>
+      </div>
+      <div class="team" id="equipe">
+        <div class="wrap team-grid">
+          <div>
+            <p class="eyebrow">Une équipe passionnée</p>
+            <h2 class="display">Nos coachs <span class="accent">en action.</span></h2>
+            <p class="lead">Des entraîneurs expérimentés, passionnés et formés pour accompagner les enfants dans leur progression, avec professionnalisme et bonne humeur.</p>
+            <a class="btn" href="https://boxingcenter.fr/" target="_blank" rel="noopener">Découvrir toute l'équipe</a>
+          </div>
+          <div class="roster">
+            <article class="coach"><img src="assets/img/coach-valentin.jpg" alt="Valentin Tapia, coach de boxe éducative au Boxing Center"><div class="body"><h3>Valentin Tapia</h3><p class="role">BOXE ÉDUCATIVE</p><p>Au club depuis plus de dix ans. BPJEPS et DEJEPS. Neuf champions de France sont passés par son encadrement, dont deux en équipe de France jeunes.</p><div class="tags"><span>Enfants</span><span>Boxe anglaise</span><span>Pédagogie</span></div></div></article>
+            <article class="coach"><img src="assets/img/coach-mehdi.jpg" alt="Mehdi, coach de boxe au Boxing Center"><div class="body"><h3>Mehdi</h3><p class="role">BOXE ÉDUCATIVE</p><p>BPJEPS et DEJEPS, plus de trente combats. Il suit les enfants, les débutants et les compétiteurs avec la même méthode.</p><div class="tags"><span>Enfants</span><span>Boxe anglaise</span><span>Compétition</span></div></div></article>
+            <article class="coach"><img class="is-hicham" src="assets/img/coach-hicham.jpg" alt="Hicham, coach de boxe anglaise au Boxing Center"><div class="body"><h3>Hicham</h3><p class="role">BOXE ANGLAISE</p><p>Diplômé BPJEPS AF. Il encadre la boxe anglaise et la préparation physique, au rythme de chacun.</p><div class="tags"><span>Boxe anglaise</span><span>Préparation</span><span>Écoute</span></div></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="wrap">
+        <p class="eyebrow">Le parcours</p>
+        <h2 class="display">Trois âges, <span class="accent">trois manières de boxer.</span></h2>
+        <p class="lead">C'est le découpage publié par le club. Les groupes ne se mélangent pas, et personne n'est inscrit en compétition sans l'avoir choisi.</p>
+        <div class="b-cards" style="margin-top:28px">
+          <article class="b-card"><div class="top"><span class="num">01</span></div><h3>Baby Boxe, 3 – 6 ans</h3><p>Le samedi de 14h15 à 15h. Éveil sportif et boxe ludique. La recherche d'efficacité est proscrite. À Portet, le créneau Baby commence à 4 ans.</p></article>
+          <article class="b-card"><div class="top"><span class="num">02</span></div><h3>Éducative, 7 – 11 ans</h3><p>Technique, discipline, respect et partage. Deux séances, le mercredi et le samedi, de septembre à juin.</p></article>
+          <article class="b-card"><div class="top"><span class="num">03</span></div><h3>Ados, 12 – 16 ans</h3><p>Séances plus structurées. La compétition reste un choix. Le MMA ados dépend de la salle : il est au planning des États-Unis.</p></article>
+          <article class="b-card"><div class="top"><span class="num">04</span></div><h3>Même encadrement</h3><p>Les coachs des cours enfants sont ceux qui entraînent aussi les compétiteurs. L'exigence reste, le langage change.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="stage">
+      <img class="drift-photo" src="assets/img/club-3.jpg" alt="Salle du Boxing Center États-Unis">
+      <div class="stage-copy wrap">
+        <div class="txt">
+          <p class="eyebrow" style="color:#fff">Dans les clubs</p>
+          <h2 class="display">La même méthode, dans les cinq salles.</h2>
+        </div>
+        <a class="btn" href="clubs.html">Voir les clubs</a>
+      </div>
+    </section>
+  </main>
+  <footer class="footer" id="contact">
+    <div class="footer-cta">
+      <div class="footer-copy">
+        <p class="footer-kicker">Boxe éducative enfants Toulouse</p>
+        <h2 class="display">Rejoignez la grande<br>famille <span class="accent">Boxing Center.</span></h2>
+        <p class="lead">La boxe éducative pour les enfants à Toulouse et ses alentours. Un cadre sécurisé, des coachs passionnés et une évolution adaptée à chaque âge.</p>
+        <div class="footer-meta">
+          <span><svg class="icon"><use href="#i-users"/></svg>Une équipe passionnée</span>
+          <span><svg class="icon"><use href="#i-shield"/></svg>Un cadre sécurisé</span>
+          <span><svg class="icon"><use href="#i-chart"/></svg>Des enfants qui progressent</span>
+        </div>
+        </div>
+        <div class="footer-photo">
+          <img src="assets/img/footer-hero.jpg" alt="Enfant de dos pendant un cours de boxe au Boxing Center">
+          <a class="btn" href="essai.html"><svg class="icon"><use href="#i-cal"/></svg>Réserver une séance d'essai <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </div>
+    </div>
+    <div class="footer-grid">
+      <div>
+        <a class="footer-logo" href="index.html"><img src="assets/logo.png" alt="Boxing Center"></a>
+        <p>La boxe éducative pour les enfants à Toulouse et ses alentours. Un cadre sécurisé, des coachs passionnés et une évolution adaptée à chaque âge.</p>
+      </div>
+      <div class="footer-links">
+        <h3>LIENS UTILES</h3>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="index.html#ages">Baby Boxe</a></li>
+          <li><a href="boxe-educative.html">Boxe Éducative</a></li>
+          <li><a href="clubs.html">Nos clubs</a></li>
+          <li><a href="horaires.html">Horaires</a></li>
+          <li><a href="essai.html">Séance d'essai</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h3>NOS CLUBS À TOULOUSE</h3>
+        <ul>
+          <li><a href="https://toulouse-minimes-boxing-club.fr/" target="_blank" rel="noopener"><span><svg class="icon pin"><use href="#i-pin"/></svg>Club Toulouse Minimes</span></a></li>
+          <li><a href="https://club-boxe-toulouse.com/" target="_blank" rel="noopener"><span><svg class="icon pin"><use href="#i-pin"/></svg>Club Saint-Cyprien</span></a></li>
+          <li><a href="https://clubmma.fr/" target="_blank" rel="noopener"><span><svg class="icon pin"><use href="#i-pin"/></svg>Club États-Unis</span></a></li>
+          <li><a href="https://mmatoulouse.com/" target="_blank" rel="noopener"><span><svg class="icon pin"><use href="#i-pin"/></svg>Club Ramonville</span></a></li>
+          <li><a href="https://boxing-center-portet.fr/" target="_blank" rel="noopener"><span><svg class="icon pin"><use href="#i-pin"/></svg>Club Portet-sur-Garonne</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>CONTACT</h3>
+        <ul class="contact-list">
+          <li><svg class="icon"><use href="#i-phone"/></svg><div><a href="tel:+33562244682">05 62 24 46 82</a><br><span>Lundi au samedi · 10h – 21h30</span></div></li>
+          <li><svg class="icon"><use href="#i-mail"/></svg><div><a href="mailto:boxingcenter31@gmail.com">boxingcenter31@gmail.com</a><br><span>Écrire au club</span></div></li>
+          <li><svg class="icon"><use href="#i-pin"/></svg><div>5 clubs à Toulouse et ses alentours</div></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 Boxing Center. Tous droits réservés.</span>
+      <nav aria-label="Informations">
+        <a href="contact.html">Mentions légales</a>
+        <a href="contact.html">Politique de confidentialité</a>
+        <a href="contact.html">CGV</a>
+        <a href="index.html">Plan du site</a>
+      </nav>
+      <span>Site réalisé avec passion pour les enfants</span>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
