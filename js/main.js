@@ -372,10 +372,17 @@
         });
         const result = await response.json();
         const sent = result && (result.success === true || result.success === "true");
-        if (!sent) throw new Error("send");
-        error.classList.add("is-ok");
-        error.textContent = "Demande envoyée. Le club la reçoit à boxingcenter31@gmail.com.";
-        form.reset();
+        const reply = String((result && result.message) || "");
+        if (/activation/i.test(reply)) {
+          error.classList.remove("is-ok");
+          error.textContent = "Le club doit confirmer la boîte mail une première fois. En attendant, appelez le 05 62 24 46 82.";
+        } else if (!sent) {
+          throw new Error("send");
+        } else {
+          error.classList.add("is-ok");
+          error.textContent = "Demande envoyée. Le club la reçoit à boxingcenter31@gmail.com.";
+          form.reset();
+        }
       } catch (sendError) {
         error.classList.remove("is-ok");
         error.textContent = "L'envoi n'a pas abouti. Écrivez à boxingcenter31@gmail.com ou appelez le 05 62 24 46 82.";
