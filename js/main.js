@@ -286,7 +286,7 @@
     const dialog = document.createElement("dialog");
     dialog.className = "trial-dialog";
     dialog.innerHTML =
-      '<form action="https://formsubmit.co/boxingcenter31@gmail.com" method="POST">' +
+      '<form action="https://formsubmit.co/9f1dfb0b109d276e02b2c2e13664efda" method="POST">' +
         '<input type="hidden" name="_subject" value="Séance d\'essai">' +
         '<input type="hidden" name="_template" value="table">' +
         '<input type="hidden" name="_captcha" value="false">' +
