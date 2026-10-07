@@ -286,26 +286,30 @@
     const dialog = document.createElement("dialog");
     dialog.className = "trial-dialog";
     dialog.innerHTML =
-      '<form>' +
+      '<form action="https://formsubmit.co/boxingcenter31@gmail.com" method="POST">' +
+        '<input type="hidden" name="_subject" value="Séance d\'essai">' +
+        '<input type="hidden" name="_template" value="table">' +
+        '<input type="hidden" name="_captcha" value="false">' +
+        '<input type="hidden" name="_next" value="https://sitebaby.vercel.app/?essai=envoye">' +
         '<div class="trial-head">' +
           '<div><p class="eyebrow">Séance d\'essai</p><h2 id="trial-title">Réserver une séance d\'essai</h2></div>' +
           '<button type="button" class="trial-close" aria-label="Fermer">×</button>' +
         '</div>' +
         '<p class="trial-note">La séance d\'essai enfant est gratuite. La demande est envoyée à boxingcenter31@gmail.com.</p>' +
         '<div class="grid-2">' +
-          '<div class="field"><label class="lbl" for="trial-last">Nom</label><input class="text-input" id="trial-last" name="parentLast" autocomplete="family-name" required></div>' +
-          '<div class="field"><label class="lbl" for="trial-first">Prénom</label><input class="text-input" id="trial-first" name="parentFirst" autocomplete="given-name" required></div>' +
+          '<div class="field"><label class="lbl" for="trial-last">Nom</label><input class="text-input" id="trial-last" name="Nom" autocomplete="family-name" required></div>' +
+          '<div class="field"><label class="lbl" for="trial-first">Prénom</label><input class="text-input" id="trial-first" name="Prénom" autocomplete="given-name" required></div>' +
         '</div>' +
-        '<div class="field"><label class="lbl" for="trial-phone">Numéro</label><input class="text-input" id="trial-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required></div>' +
-        '<div class="field"><label class="lbl" for="trial-club">Salle</label><select id="trial-club" name="club" required><option value="">Choisir une salle</option>' +
-          clubs.map(([id, label]) => '<option value="' + id + '">' + label + '</option>').join("") +
+        '<div class="field"><label class="lbl" for="trial-phone">Numéro</label><input class="text-input" id="trial-phone" name="Numéro" type="tel" inputmode="tel" autocomplete="tel" required></div>' +
+        '<div class="field"><label class="lbl" for="trial-club">Salle</label><select id="trial-club" name="Salle" required><option value="">Choisir une salle</option>' +
+          clubs.map(([id, label]) => '<option value="' + label + '" data-id="' + id + '">' + label + '</option>').join("") +
         '</select></div>' +
         '<div class="grid-2">' +
-          '<div class="field"><label class="lbl" for="trial-child-last">Nom de l\'enfant</label><input class="text-input" id="trial-child-last" name="childLast" autocomplete="off" required></div>' +
-          '<div class="field"><label class="lbl" for="trial-child-first">Prénom de l\'enfant</label><input class="text-input" id="trial-child-first" name="childFirst" autocomplete="off" required></div>' +
+          '<div class="field"><label class="lbl" for="trial-child-last">Nom de l\'enfant</label><input class="text-input" id="trial-child-last" name="Nom de l\'enfant" autocomplete="off" required></div>' +
+          '<div class="field"><label class="lbl" for="trial-child-first">Prénom de l\'enfant</label><input class="text-input" id="trial-child-first" name="Prénom de l\'enfant" autocomplete="off" required></div>' +
         '</div>' +
-        '<div class="field"><label class="lbl" for="trial-age">Âge de l\'enfant</label><input class="text-input" id="trial-age" name="age" type="number" inputmode="numeric" min="3" max="16" required></div>' +
-        '<div class="field"><label class="lbl" for="trial-message">Message</label><textarea class="text-input" id="trial-message" name="message" rows="4"></textarea></div>' +
+        '<div class="field"><label class="lbl" for="trial-age">Âge de l\'enfant</label><input class="text-input" id="trial-age" name="Âge de l\'enfant" type="number" inputmode="numeric" min="3" max="16" required></div>' +
+        '<div class="field"><label class="lbl" for="trial-message">Message</label><textarea class="text-input" id="trial-message" name="Message" rows="4"></textarea></div>' +
         '<p class="form-error" id="trial-error" role="alert"></p>' +
         '<button class="btn" type="submit">Envoyer la demande</button>' +
       '</form>';
@@ -314,12 +318,13 @@
 
     const form = dialog.querySelector("form");
     const error = dialog.querySelector("#trial-error");
-    const clubSelect = form.querySelector("[name=club]");
+    const clubSelect = form.querySelector("[name=Salle]");
     const openTrial = (event) => {
       event.preventDefault();
       const fromButton = new URL(event.currentTarget.href, location.origin).searchParams.get("club");
       const preset = fromButton || new URLSearchParams(location.search).get("club");
-      if (preset && clubs.some(([id]) => id === preset)) clubSelect.value = preset;
+      const option = preset && clubSelect.querySelector('option[data-id="' + preset + '"]');
+      if (option) clubSelect.value = option.value;
       if (!dialog.open) dialog.showModal();
     };
     trialButtons.forEach((button) => button.addEventListener("click", openTrial));
@@ -328,67 +333,32 @@
       if (event.target === dialog) dialog.close();
     });
 
-    const submitButton = form.querySelector('[type="submit"]');
-    form.addEventListener("submit", async (event) => {
-      event.preventDefault();
+    form.addEventListener("submit", (event) => {
       const data = new FormData(form);
-      const parentLast = String(data.get("parentLast") || "").trim();
-      const parentFirst = String(data.get("parentFirst") || "").trim();
-      const phone = String(data.get("phone") || "").trim();
-      const club = String(data.get("club") || "");
-      const childLast = String(data.get("childLast") || "").trim();
-      const childFirst = String(data.get("childFirst") || "").trim();
-      const age = Number(data.get("age"));
-      const message = String(data.get("message") || "").trim();
-      const clubLabel = (clubs.find(([id]) => id === club) || [])[1];
+      const parentLast = String(data.get("Nom") || "").trim();
+      const parentFirst = String(data.get("Prénom") || "").trim();
+      const phone = String(data.get("Numéro") || "").trim();
+      const club = String(data.get("Salle") || "");
+      const childLast = String(data.get("Nom de l'enfant") || "").trim();
+      const childFirst = String(data.get("Prénom de l'enfant") || "").trim();
+      const age = Number(data.get("Âge de l'enfant"));
       const digits = phone.replace(/\D/g, "");
       const phoneOk = digits.length >= 10 && digits.length <= 15;
-
-      if (parentLast.length < 2 || parentFirst.length < 2 || !phoneOk || !clubLabel || childLast.length < 2 || childFirst.length < 2 || age < 3 || age > 16) {
-        error.classList.remove("is-ok");
+      if (parentLast.length < 2 || parentFirst.length < 2 || !phoneOk || !club || childLast.length < 2 || childFirst.length < 2 || age < 3 || age > 16) {
+        event.preventDefault();
         error.textContent = "Indiquez vos nom et prénom, un numéro de téléphone, la salle, le nom, le prénom et l'âge de l'enfant (3 à 16 ans).";
         return;
       }
-      error.classList.remove("is-ok");
       error.textContent = "";
-      submitButton.disabled = true;
-      try {
-        const response = await fetch("https://formsubmit.co/ajax/boxingcenter31@gmail.com", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify({
-            _subject: "Séance d'essai – " + clubLabel,
-            _template: "table",
-            _captcha: "false",
-            Nom: parentLast,
-            Prénom: parentFirst,
-            Numéro: phone,
-            Salle: clubLabel,
-            "Nom de l'enfant": childLast,
-            "Prénom de l'enfant": childFirst,
-            "Âge de l'enfant": age + " ans",
-            Message: message || "(aucun message)"
-          })
-        });
-        const result = await response.json();
-        const sent = result && (result.success === true || result.success === "true");
-        const reply = String((result && result.message) || "");
-        if (/activation/i.test(reply)) {
-          error.classList.remove("is-ok");
-          error.textContent = "Le club doit confirmer la boîte mail une première fois. En attendant, appelez le 05 62 24 46 82.";
-        } else if (!sent) {
-          throw new Error("send");
-        } else {
-          error.classList.add("is-ok");
-          error.textContent = "Demande envoyée. Le club la reçoit à boxingcenter31@gmail.com.";
-          form.reset();
-        }
-      } catch (sendError) {
-        error.classList.remove("is-ok");
-        error.textContent = "L'envoi n'a pas abouti. Écrivez à boxingcenter31@gmail.com ou appelez le 05 62 24 46 82.";
-      }
-      submitButton.disabled = false;
+      form.querySelector("[name=_subject]").value = "Séance d'essai – " + club;
     });
+  }
+
+  if (new URLSearchParams(location.search).get("essai") === "envoye") {
+    const sent = document.createElement("p");
+    sent.className = "trial-sent";
+    sent.textContent = "Demande envoyée. Le club la reçoit à boxingcenter31@gmail.com.";
+    document.body.appendChild(sent);
   }
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

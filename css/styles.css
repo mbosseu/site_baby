@@ -1615,6 +1615,22 @@ select, .text-input {
   margin: 8px 0 16px;
 }
 
+.trial-sent {
+  position: fixed;
+  z-index: 40;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  width: min(420px, calc(100% - 24px));
+  margin: 0;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: #111;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(16, 16, 20, 0.25);
+}
+
 .trial-dialog .btn:disabled { opacity: 0.7; cursor: wait; }
 
 .trial-dialog textarea.text-input {
