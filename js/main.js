@@ -274,7 +274,7 @@
     next.addEventListener("click", () => scrollReviews(1));
   }
 
-  const trialButtons = document.querySelectorAll(".footer-photo .btn");
+  const trialButtons = document.querySelectorAll('a.btn[href="/essai"], a.btn[href^="/essai?"]');
   if (trialButtons.length && !document.querySelector(".trial-dialog")) {
     const clubs = [
       ["minimes", "Club Toulouse Minimes"],
@@ -286,12 +286,12 @@
     const dialog = document.createElement("dialog");
     dialog.className = "trial-dialog";
     dialog.innerHTML =
-      '<form method="dialog">' +
+      '<form>' +
         '<div class="trial-head">' +
           '<div><p class="eyebrow">Séance d\'essai</p><h2 id="trial-title">Réserver une séance d\'essai</h2></div>' +
           '<button type="button" class="trial-close" aria-label="Fermer">×</button>' +
         '</div>' +
-        '<p class="trial-note">La séance d\'essai enfant est gratuite. La demande part à boxingcenter31@gmail.com.</p>' +
+        '<p class="trial-note">La séance d\'essai enfant est gratuite. La demande est envoyée à boxingcenter31@gmail.com.</p>' +
         '<div class="grid-2">' +
           '<div class="field"><label class="lbl" for="trial-last">Nom</label><input class="text-input" id="trial-last" name="parentLast" autocomplete="family-name" required></div>' +
           '<div class="field"><label class="lbl" for="trial-first">Prénom</label><input class="text-input" id="trial-first" name="parentFirst" autocomplete="given-name" required></div>' +
@@ -317,7 +317,8 @@
     const clubSelect = form.querySelector("[name=club]");
     const openTrial = (event) => {
       event.preventDefault();
-      const preset = new URLSearchParams(location.search).get("club");
+      const fromButton = new URL(event.currentTarget.href, location.origin).searchParams.get("club");
+      const preset = fromButton || new URLSearchParams(location.search).get("club");
       if (preset && clubs.some(([id]) => id === preset)) clubSelect.value = preset;
       if (!dialog.open) dialog.showModal();
     };
@@ -327,7 +328,8 @@
       if (event.target === dialog) dialog.close();
     });
 
-    form.addEventListener("submit", (event) => {
+    const submitButton = form.querySelector('[type="submit"]');
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
       const data = new FormData(form);
       const parentLast = String(data.get("parentLast") || "").trim();
@@ -347,32 +349,38 @@
         error.textContent = "Indiquez vos nom et prénom, un numéro de téléphone, la salle, le nom, le prénom et l'âge de l'enfant (3 à 16 ans).";
         return;
       }
-      error.textContent = "";
       error.classList.remove("is-ok");
-      const summary = [
-        "Bonjour,",
-        "",
-        "Je souhaite réserver une séance d'essai.",
-        "Nom : " + parentLast,
-        "Prénom : " + parentFirst,
-        "Numéro : " + phone,
-        "Salle : " + clubLabel,
-        "Nom de l'enfant : " + childLast,
-        "Prénom de l'enfant : " + childFirst,
-        "Âge de l'enfant : " + age + " ans",
-        "",
-        "Message :",
-        message || "(aucun message)"
-      ].join("\n");
-      const mail = document.createElement("a");
-      mail.href =
-        "mailto:boxingcenter31@gmail.com?subject=" +
-        encodeURIComponent("Séance d'essai – " + clubLabel) +
-        "&body=" +
-        encodeURIComponent(summary);
-      mail.click();
-      error.classList.add("is-ok");
-      error.textContent = "Votre messagerie s'ouvre. Envoyez le message pour qu'il arrive au club.";
+      error.textContent = "";
+      submitButton.disabled = true;
+      try {
+        const response = await fetch("https://formsubmit.co/ajax/boxingcenter31@gmail.com", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            _subject: "Séance d'essai – " + clubLabel,
+            _template: "table",
+            _captcha: "false",
+            Nom: parentLast,
+            Prénom: parentFirst,
+            Numéro: phone,
+            Salle: clubLabel,
+            "Nom de l'enfant": childLast,
+            "Prénom de l'enfant": childFirst,
+            "Âge de l'enfant": age + " ans",
+            Message: message || "(aucun message)"
+          })
+        });
+        const result = await response.json();
+        const sent = result && (result.success === true || result.success === "true");
+        if (!sent) throw new Error("send");
+        error.classList.add("is-ok");
+        error.textContent = "Demande envoyée. Le club la reçoit à boxingcenter31@gmail.com.";
+        form.reset();
+      } catch (sendError) {
+        error.classList.remove("is-ok");
+        error.textContent = "L'envoi n'a pas abouti. Écrivez à boxingcenter31@gmail.com ou appelez le 05 62 24 46 82.";
+      }
+      submitButton.disabled = false;
     });
   }
 
