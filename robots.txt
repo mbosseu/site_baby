@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://boxe-enfant.fr/sitemap.xml
+Sitemap: https://www.boxe-enfant.fr/sitemap.xml
