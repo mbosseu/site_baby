@@ -1,2 +1,5 @@
 node_modules/
 shots/
+.env
+.env*.local
+.vercel

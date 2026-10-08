@@ -286,11 +286,7 @@
     const dialog = document.createElement("dialog");
     dialog.className = "trial-dialog";
     dialog.innerHTML =
-      '<form action="https://formsubmit.co/9f1dfb0b109d276e02b2c2e13664efda" method="POST">' +
-        '<input type="hidden" name="_subject" value="Séance d\'essai">' +
-        '<input type="hidden" name="_template" value="table">' +
-        '<input type="hidden" name="_captcha" value="false">' +
-        '<input type="hidden" name="_next" value="https://www.boxe-enfant.fr/?essai=envoye">' +
+      '<form method="POST" action="/api/essai">' +
         '<div class="trial-head">' +
           '<div><p class="eyebrow">Séance d\'essai</p><h2 id="trial-title">Réserver une séance d\'essai</h2></div>' +
           '<button type="button" class="trial-close" aria-label="Fermer">×</button>' +
@@ -333,7 +329,16 @@
       if (event.target === dialog) dialog.close();
     });
 
-    form.addEventListener("submit", (event) => {
+    const showSent = () => {
+      if (document.querySelector(".trial-sent")) return;
+      const sent = document.createElement("p");
+      sent.className = "trial-sent";
+      sent.textContent = "Demande envoyée. Le club la reçoit à boxingcenter31@gmail.com.";
+      document.body.appendChild(sent);
+    };
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
       const data = new FormData(form);
       const parentLast = String(data.get("Nom") || "").trim();
       const parentFirst = String(data.get("Prénom") || "").trim();
@@ -342,19 +347,44 @@
       const childLast = String(data.get("Nom de l'enfant") || "").trim();
       const childFirst = String(data.get("Prénom de l'enfant") || "").trim();
       const age = Number(data.get("Âge de l'enfant"));
+      const message = String(data.get("Message") || "").trim();
       const digits = phone.replace(/\D/g, "");
       const phoneOk = digits.length >= 10 && digits.length <= 15;
-      if (parentLast.length < 2 || parentFirst.length < 2 || !phoneOk || !club || childLast.length < 2 || childFirst.length < 2 || age < 3 || age > 16) {
-        event.preventDefault();
+      if (parentLast.length < 2 || parentFirst.length < 2 || !phoneOk || !club || childLast.length < 2 || childFirst.length < 2 || !Number.isInteger(age) || age < 3 || age > 16) {
+        error.classList.remove("is-ok");
         error.textContent = "Indiquez vos nom et prénom, un numéro de téléphone, la salle, le nom, le prénom et l'âge de l'enfant (3 à 16 ans).";
         return;
       }
       error.textContent = "";
-      form.querySelector("[name=_subject]").value = "Séance d'essai – " + club;
+      const submit = form.querySelector("[type=submit]");
+      submit.disabled = true;
+      submit.textContent = "Envoi…";
+      try {
+        const response = await fetch("/api/essai", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({ parentLast, parentFirst, phone, club, childLast, childFirst, age, message })
+        });
+        const payload = await response.json().catch(() => ({}));
+        if (!response.ok || !payload.ok) {
+          error.classList.remove("is-ok");
+          error.textContent = payload.error || "L'envoi n'a pas abouti. Réessayez dans un instant.";
+          return;
+        }
+        form.reset();
+        dialog.close();
+        showSent();
+      } catch (err) {
+        error.classList.remove("is-ok");
+        error.textContent = "L'envoi n'a pas abouti. Vérifiez votre connexion et réessayez.";
+      } finally {
+        submit.disabled = false;
+        submit.textContent = "Envoyer la demande";
+      }
     });
   }
 
-  if (new URLSearchParams(location.search).get("essai") === "envoye") {
+  if (new URLSearchParams(location.search).get("essai") === "envoye" && !document.querySelector(".trial-sent")) {
     const sent = document.createElement("p");
     sent.className = "trial-sent";
     sent.textContent = "Demande envoyée. Le club la reçoit à boxingcenter31@gmail.com.";
